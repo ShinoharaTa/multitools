@@ -41,5 +41,6 @@ cd web && npm install && npm run dev
 
 | ツール名 | 概要 | 種別 | 言語 |
 |---------|------|------|------|
+| [アルファベット対応表](web/src/app/tools/alphabet-marker/) | アルファベットを5つごとに区切ってマーキング | Web | TypeScript |
 | [五十音マーカー](web/src/app/tools/gojuon-marker/) | 五十音表の押したかなをマーキングして確認 | Web | TypeScript |
 | [Video Converter](web/src/app/tools/video-converter/) | 動画のアスペクト比確認・修正、安定フォーマット(H.264+AAC)への変換 | Web | TypeScript |

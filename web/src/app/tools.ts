@@ -8,6 +8,13 @@ export type Tool = {
 
 export const tools: Tool[] = [
   {
+    id: "alphabet-marker",
+    name: "アルファベット対応表",
+    description: "アルファベットを5つごとに区切ってマーキング",
+    path: "/tools/alphabet-marker",
+    tags: ["英語", "アルファベット", "マーカー"],
+  },
+  {
     id: "gojuon-marker",
     name: "五十音マーカー",
     description: "五十音表の押したかなをマーキングして確認",
