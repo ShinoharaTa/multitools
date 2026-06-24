@@ -11,7 +11,7 @@
 
 ## アーキテクチャ
 
-Web ツールは Next.js (App Router) で `localhost:3000` に集約。ブラウザ完結の処理は WASM も活用し、OS 連携が必要なものは API Route または CLI ツールで対応。
+Web ツールは Next.js (App Router) で `localhost:3000` に集約。動画変換などの重い処理も WASM (ffmpeg.wasm) でブラウザ内に閉じており、静的サイトとして配信できる。OS 連携が必要なものは CLI ツールで対応。
 
 ## ディレクトリ構成
 
@@ -43,4 +43,19 @@ cd web && npm install && npm run dev
 |---------|------|------|------|
 | [アルファベット対応表](web/src/app/tools/alphabet-marker/) | アルファベットを5つごとに区切ってマーキング | Web | TypeScript |
 | [五十音マーカー](web/src/app/tools/gojuon-marker/) | 五十音表の押したかなをマーキングして確認 | Web | TypeScript |
-| [Video Converter](web/src/app/tools/video-converter/) | 動画のアスペクト比確認・修正、安定フォーマット(H.264+AAC)への変換 | Web | TypeScript |
+| [Video Converter](web/src/app/tools/video-converter/) | 動画のアスペクト比修正と安定フォーマット(H.264+AAC)変換をブラウザ内で完結 | Web | TypeScript |
+
+## デプロイ (Cloudflare Pages)
+
+すべてのツールがブラウザ完結のため、静的サイトとして配信できる。`web/next.config.ts` で `output: "export"` を設定済み。
+
+- Root directory: `web`
+- Build command: `npm run build`
+- Build output directory: `out`
+
+ローカルでの静的ビルド確認:
+
+```bash
+cd web && npm run build
+# 成果物は web/out/
+```
