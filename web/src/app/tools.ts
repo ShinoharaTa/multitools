@@ -8,6 +8,34 @@ export type Tool = {
 
 export const tools: Tool[] = [
   {
+    id: "hash-converter",
+    name: "ハッシュ変換",
+    description: "入力文字列を複数のハッシュ値に変換",
+    path: "/tools/hash-converter",
+    tags: ["ハッシュ", "SHA-256", "MD5"],
+  },
+  {
+    id: "encoding-converter",
+    name: "文字コード変換",
+    description: "UTF-8 / Shift_JIS / EUC-JP の相互変換",
+    path: "/tools/encoding-converter",
+    tags: ["文字コード", "Shift_JIS", "EUC-JP"],
+  },
+  {
+    id: "nostr-key-converter",
+    name: "Nostr Key Converter",
+    description: "npub / nsec を hex に変換",
+    path: "/tools/nostr-key-converter",
+    tags: ["Nostr", "npub", "nsec"],
+  },
+  {
+    id: "ip-address",
+    name: "IPアドレス確認",
+    description: "現在のアクセス元グローバルIPアドレスを表示",
+    path: "/tools/ip-address",
+    tags: ["ネットワーク", "IP", "確認"],
+  },
+  {
     id: "alphabet-marker",
     name: "アルファベット対応表",
     description: "アルファベットを5つごとに区切ってマーキング",

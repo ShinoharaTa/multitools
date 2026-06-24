@@ -41,6 +41,10 @@ cd web && npm install && npm run dev
 
 | ツール名 | 概要 | 種別 | 言語 |
 |---------|------|------|------|
+| [ハッシュ変換](web/src/app/tools/hash-converter/) | 入力文字列を複数のハッシュ値に変換 | Web | TypeScript |
+| [文字コード変換](web/src/app/tools/encoding-converter/) | UTF-8 / Shift_JIS / EUC-JP の相互変換 | Web | TypeScript |
+| [Nostr Key Converter](web/src/app/tools/nostr-key-converter/) | npub / nsec を hex に変換 | Web | TypeScript |
+| [IPアドレス確認](web/src/app/tools/ip-address/) | 現在のアクセス元グローバルIPアドレスを表示 | Web | TypeScript |
 | [アルファベット対応表](web/src/app/tools/alphabet-marker/) | アルファベットを5つごとに区切ってマーキング | Web | TypeScript |
 | [五十音マーカー](web/src/app/tools/gojuon-marker/) | 五十音表の押したかなをマーキングして確認 | Web | TypeScript |
 | [Video Converter](web/src/app/tools/video-converter/) | 動画のアスペクト比修正と安定フォーマット(H.264+AAC)変換をブラウザ内で完結 | Web | TypeScript |

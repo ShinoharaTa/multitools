@@ -47,6 +47,61 @@ export default function GojuonMarker() {
     );
   };
 
+  const renderControls = (rotateLabel = false) => {
+    const hasMarks = Object.keys(marks).length > 0;
+
+    return (
+      <div
+        className={rotateLabel ? "flex flex-col gap-1.5" : "flex flex-wrap gap-2"}
+      >
+        {MARK_OPTIONS.map((option) => (
+          <button
+            key={option.type}
+            type="button"
+            aria-pressed={markType === option.type}
+            onClick={() => changeMarkType(option.type)}
+            className={[
+              "relative whitespace-nowrap rounded-md border text-sm font-medium transition-colors",
+              rotateLabel ? "h-16 w-10 p-0 text-[11px]" : "min-w-24 px-3 py-2",
+              markType === option.type
+                ? "border-blue-500 bg-blue-500 text-white"
+                : "border-zinc-300 bg-white text-zinc-700 hover:border-blue-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-blue-700",
+            ].join(" ")}
+          >
+            <span
+              className={
+                rotateLabel
+                  ? "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 whitespace-nowrap leading-none"
+                  : undefined
+              }
+            >
+              {option.label}
+            </span>
+          </button>
+        ))}
+        <button
+          type="button"
+          onClick={() => setMarks({})}
+          disabled={!hasMarks}
+          className={[
+            "relative whitespace-nowrap rounded-md border border-zinc-300 bg-white text-sm text-zinc-600 transition-colors hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-40 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800",
+            rotateLabel ? "h-16 w-10 p-0 text-[11px]" : "min-w-24 px-3 py-2",
+          ].join(" ")}
+        >
+          <span
+            className={
+              rotateLabel
+                ? "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 whitespace-nowrap leading-none"
+                : undefined
+            }
+          >
+            クリア
+          </span>
+        </button>
+      </div>
+    );
+  };
+
   const renderKanaCell = (
     kana: string | null,
     rowIndex: number,
@@ -107,50 +162,29 @@ export default function GojuonMarker() {
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        {MARK_OPTIONS.map((option) => (
-          <button
-            key={option.type}
-            type="button"
-            aria-pressed={markType === option.type}
-            onClick={() => changeMarkType(option.type)}
-            className={[
-              "rounded-md border px-3 py-1.5 text-sm font-medium transition-colors",
-              markType === option.type
-                ? "border-blue-500 bg-blue-500 text-white"
-                : "border-zinc-300 bg-white text-zinc-700 hover:border-blue-300 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-blue-700",
-            ].join(" ")}
-          >
-            {option.label}
-          </button>
-        ))}
-        <button
-          type="button"
-          onClick={() => setMarks({})}
-          disabled={Object.keys(marks).length === 0}
-          className="rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-sm text-zinc-600 transition-colors hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-40 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
-        >
-          クリア
-        </button>
-      </div>
-
-      <div className="rounded-lg border border-zinc-200 bg-white p-3 dark:border-zinc-800 dark:bg-zinc-900 sm:hidden">
-        <div className="grid grid-cols-5 gap-1.5">
-          {MOBILE_GOJUON_TABLE.flatMap((row, rowIndex) =>
-            row.map((kana, columnIndex) =>
-              renderKanaCell(kana, rowIndex, columnIndex, "mobile", true)
-            )
-          )}
+      <div className="flex items-start gap-2 sm:hidden">
+        <div className="flex-1 rounded-lg border border-zinc-200 bg-white p-3 dark:border-zinc-800 dark:bg-zinc-900">
+          <div className="grid grid-cols-5 gap-1.5">
+            {MOBILE_GOJUON_TABLE.flatMap((row, rowIndex) =>
+              row.map((kana, columnIndex) =>
+                renderKanaCell(kana, rowIndex, columnIndex, "mobile", true)
+              )
+            )}
+          </div>
         </div>
+        {renderControls(true)}
       </div>
 
-      <div className="hidden overflow-x-auto rounded-lg border border-zinc-200 bg-white p-3 dark:border-zinc-800 dark:bg-zinc-900 sm:block">
-        <div className="grid min-w-[572px] grid-cols-11 gap-1.5">
-          {GOJUON_TABLE.flatMap((row, rowIndex) =>
-            row.map((kana, columnIndex) =>
-              renderKanaCell(kana, rowIndex, columnIndex, "desktop")
-            )
-          )}
+      <div className="hidden sm:block">
+        <div className="mb-2">{renderControls()}</div>
+        <div className="overflow-x-auto rounded-lg border border-zinc-200 bg-white p-3 dark:border-zinc-800 dark:bg-zinc-900">
+          <div className="grid min-w-[572px] grid-cols-11 gap-1.5">
+            {GOJUON_TABLE.flatMap((row, rowIndex) =>
+              row.map((kana, columnIndex) =>
+                renderKanaCell(kana, rowIndex, columnIndex, "desktop")
+              )
+            )}
+          </div>
         </div>
       </div>
     </div>

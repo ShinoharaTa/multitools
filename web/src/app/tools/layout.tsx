@@ -6,7 +6,7 @@ export default function ToolsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-zinc-50 font-sans dark:bg-zinc-950">
+    <div className="min-h-dvh bg-zinc-50 font-sans dark:bg-zinc-950">
       <header className="border-b border-zinc-200 dark:border-zinc-800">
         <div className="mx-auto max-w-5xl px-6 py-4 flex items-center gap-3">
           <Link
