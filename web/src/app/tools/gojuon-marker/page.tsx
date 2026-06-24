@@ -153,15 +153,6 @@ export default function GojuonMarker() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
-          五十音マーカー
-        </h1>
-        <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-          五十音表のかなを押すと、選択中のマークで印を付けます。
-        </p>
-      </div>
-
       <div className="flex items-start gap-2 sm:hidden">
         <div className="flex-1 rounded-lg border border-zinc-200 bg-white p-3 dark:border-zinc-800 dark:bg-zinc-900">
           <div className="grid grid-cols-5 gap-1.5">

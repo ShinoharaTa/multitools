@@ -63,15 +63,6 @@ export default function NostrKeyConverter() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
-          Nostr Key Converter
-        </h1>
-        <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-          npub / nsec を hex に変換します。変換はブラウザ内だけで行われます。
-        </p>
-      </div>
-
       <div className="max-w-2xl space-y-4 rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
         <div>
           <label

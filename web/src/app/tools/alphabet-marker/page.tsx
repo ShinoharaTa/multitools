@@ -91,15 +91,6 @@ export default function AlphabetMarker() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
-          アルファベット対応表
-        </h1>
-        <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-          アルファベットを5つごとに区切って、選択中のマークで印を付けます。
-        </p>
-      </div>
-
       <div className="flex flex-wrap gap-2">
         {MARK_OPTIONS.map((option) => (
           <button

@@ -240,16 +240,6 @@ export default function VideoConverter() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
-          Video Converter
-        </h1>
-        <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-          動画のアスペクト比を修正し、安定したフォーマット (H.264 + AAC / MP4)
-          にブラウザ内で変換します
-        </p>
-      </div>
-
       <div
         className="cursor-pointer rounded-lg border-2 border-dashed border-zinc-300 p-8 text-center transition-colors hover:border-zinc-500 dark:border-zinc-700 dark:hover:border-zinc-500"
         onClick={() => fileRef.current?.click()}
