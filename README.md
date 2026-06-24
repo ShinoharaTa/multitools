@@ -13,6 +13,8 @@
 
 Web ツールは Next.js (App Router) で `localhost:3000` に集約。動画変換などの重い処理も WASM (ffmpeg.wasm) でブラウザ内に閉じており、静的サイトとして配信できる。OS 連携が必要なものは CLI ツールで対応。
 
+PWA 対応済み（Web App Manifest・Service Worker・アイコン）。対応ブラウザではホーム画面にインストールでき、オフラインでも起動できる。
+
 ## ディレクトリ構成
 
 ```
