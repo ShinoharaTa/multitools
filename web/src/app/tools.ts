@@ -8,6 +8,13 @@ export type Tool = {
 
 export const tools: Tool[] = [
   {
+    id: "gojuon-marker",
+    name: "五十音マーカー",
+    description: "五十音表の押したかなをマーキングして確認",
+    path: "/tools/gojuon-marker",
+    tags: ["日本語", "五十音", "マーカー"],
+  },
+  {
     id: "video-converter",
     name: "Video Converter",
     description: "動画のアスペクト比確認・修正、安定フォーマット(H.264+AAC)への変換",
